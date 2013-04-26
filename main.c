@@ -17,15 +17,25 @@ int main(int argc, char* argv)
 		scanf("%d", &tailleMemoireVirtuelle);
 		if (tailleMemoireVive > tailleMemoireVirtuelle)
 		{
-			fprintf(stderr, "La memoire vive ne peut pas avoir une plus grande taille que le memoire virtuelle!");
+			fprintf(stderr, "La memoire vive ne peut pas avoir une plus grande taille que le memoire virtuelle!\n");
 		}
 	} while (tailleMemoireVive > tailleMemoireVirtuelle);
 	
-	printf("Entrez la taille des cadres de pages :\t");
-	scanf("%d", &tailleCadresPages);
+	do
+	{
+		printf("Entrez la taille des cadres de pages :\t");
+		scanf("%d", &tailleCadresPages);
+		if (tailleCadresPages > tailleMemoireVive || tailleCadresPages < 1)
+			fprintf(stderr, "La taille du cadre des pages doit etre une valeur strictement positive, inferieure a la taille de la memoire vive!\n");
+	{ while (tailleCadresPages > tailleMemoireVive || tailleCadresPages < 1)
 	
-	printf("Entrez le quantum pour l’ordonnancement :\t");
-	scanf("%d", &quantum);
+	do
+	{
+		printf("Entrez le quantum pour l’ordonnancement :\t");
+		scanf("%d", &quantum);
+		if (quantum < 1)
+			fprintf(stderr, "Le quantum doit avoir une valeur strictement positive!\n");
+	} while (quantum < 1)
 	
 	struct sigaction quitAction;
 	quitHandler.sa_handler = finProgramme;

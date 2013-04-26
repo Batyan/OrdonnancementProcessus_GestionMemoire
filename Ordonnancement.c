@@ -13,8 +13,6 @@ void preparationOrdonnanceur()
 	initFile(&fileP2);
 	initFile(&fileP3);
 	initFile(&fileP4);
-	
-	
 }
 
 void initFile(struct File* f)
@@ -64,7 +62,7 @@ int addProcessTable(struct Processus* p)
 
 int addProcessFile(struct File f*, struct Processus p)
 /*
- * Ajoute le processus p dans la file de priorite f
+ * Ajoute le processus p a la fin de la file de priorite f (round robin)
  * Retourne la position dans la file
  */
 {
@@ -77,10 +75,23 @@ int addProcessFile(struct File f*, struct Processus p)
 }
 
 int newProcessus(int duree, int taille)
+/*
+ * Créé un processus et l'ajoute dans la table des processus
+ * Retourne le pid du processus (-1 s'il n'a pas pu etre créé)
+ */
 {
 	struct Processus p;
 	p.duree = duree;
+	p.dureeRestante = duree;
 	p.taille = taille;
 	
+	int pid = addProcessTable(&p);
+	p.pid = pid;
 	
+	if (pid >= 0)
+	{
+		
+	}
+	
+	return pid;
 }

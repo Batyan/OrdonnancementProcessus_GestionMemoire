@@ -18,7 +18,9 @@ struct Processus* tableProcessus;
 void preparationOrdonnanceur();
 
 struct Processus{
+	int pid;
 	int duree;
+	int dureeRestante;
 	int taille;
 };
 
