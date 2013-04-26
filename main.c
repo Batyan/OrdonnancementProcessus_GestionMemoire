@@ -45,8 +45,11 @@ void finProgramme(int signum)
  * Termine le programme proprement en liberant la memoire alloué
  */
 {
+	printf("Fin du programme... Au revoir :)\n");
 	free(memoireVive);
 	free(memoireVirtuelle);
+	
+	free(tableProcessus);
 	
 	if (signum == 0)
 	// Terminaison normale
