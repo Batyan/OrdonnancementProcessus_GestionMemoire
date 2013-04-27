@@ -5,6 +5,8 @@
 
 void preparationMemoire();
 
+
+
 int tailleMemoireVive;
 int tailleMemoireVirtuelle;
 int tailleCadresPages;
