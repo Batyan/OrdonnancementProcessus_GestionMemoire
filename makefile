@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES=main.c GestionMemoire.c Ordonnacement.c
+SOURCES=main.c GestionMemoire.c Ordonnancement.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=Simulateur.run
 
