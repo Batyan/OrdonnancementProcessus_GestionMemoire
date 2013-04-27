@@ -68,7 +68,7 @@ void demandeMemoire(int ecriture)
 	printf("Memoire vive: %d cadres de page\n", numCadresVive);
 	printf("Cadre de page: pid du processus, taille du processus\n");
 	int i;
-	for (i = 0; i < numCadresVive / 5; ++i)
+	for (i = 0; i < numCadresVives / 5; ++i)
 	{
 		int j;
 		for (j = 0; j < 5; ++j)
@@ -76,7 +76,7 @@ void demandeMemoire(int ecriture)
 			printf("%d: %d, %d\t", i*5+j, tableProcessus[memoireVive[i*5+j]].pid, tableProcessus[memoireVive[i*5+j]].taille);
 		}
 	}
-	for (i = i*5; i < numCadresVive; ++i)
+	for (i = i*5; i < numCadresVives; ++i)
 	{
 		printf("%d: %d, %d\t", i, tableProcessus[memoireVive[i]].pid, tableProcessus[memoireVive[i]].taille);
 	}
@@ -88,7 +88,7 @@ void demandeMemoire(int ecriture)
 		int j;
 		for (j = 0; j < 5; ++j)
 		{
-			printf("%d: %d, %d\t", i*5+j, tableProcessus[memoireVirtuelle[i*5+j]].pid, tableProcessus[memoireVirtuelle[i*5+j]].taille);
+			printf("%d: %d, %d\t", i*5+j, tableProcessus[cadreVirtuelle[i*5+j]].pid, tableProcessus[memoireVirtuelle[i*5+j]].taille);
 		}
 	}
 	for (i = i*5; i < numCadresVirtuelle; ++i)

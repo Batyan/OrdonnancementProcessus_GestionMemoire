@@ -29,8 +29,6 @@ int addProcessFile(struct File* f, struct Processus *p);
 
 int newProcessus(int duree, int taille);
 
-void reordonnancement();
-
 struct Processus{
 	int pid;
 	int duree;

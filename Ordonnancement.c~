@@ -108,7 +108,7 @@ int newProcessus(int duree, int taille)
 	return pid;
 }
 
-void reordonnancement()
-{
-	
-}
+void reordonnancement();
+
+
+

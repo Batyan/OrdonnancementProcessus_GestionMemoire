@@ -10,6 +10,4 @@
 
 void finProgramme(int signum);
 
-void reveil(int signum);
-
 #endif /*GLOB_H*/

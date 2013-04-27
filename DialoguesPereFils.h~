@@ -1,0 +1,21 @@
+#ifndef DIALOGUESPEREFILS_H
+#define DIALOGUESPEREFILS_H
+
+#include "glob.h"
+
+#include "Ordonnancement.h"
+#include "GestionMemoire.h"
+
+void analyseReponse(int lecture);
+
+void reponseMemoire();
+
+
+void reponseFileAttenteProcessus();
+
+void demandeFileAttenteProcessus(int ecriture);
+
+void demandeAjoutProcessus(int dureeProc, int tailleProc);
+
+
+#endif /*DIALOGUESPEREFILS_H*/
