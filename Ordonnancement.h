@@ -1,4 +1,4 @@
-#indef ORDONNANCEMENT_H
+#ifndef ORDONNANCEMENT_H
 #define ORDONNANCEMENT_H
 
 #define TAILLEFILE 64
@@ -21,7 +21,7 @@ void initFile(struct File* f);
 
 int addProcessTable(struct Processus* p);
 
-int addProcessFile(struct File f*, struct Processus p);
+int addProcessFile(struct File* f, struct Processus p);
 
 int newProcessus(int duree, int taille);
 

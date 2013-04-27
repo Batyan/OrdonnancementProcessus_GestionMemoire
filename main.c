@@ -6,7 +6,26 @@
 
 #include "glob.h"
 
-int main(int argc, char* argv)
+void finProgramme(int signum)
+/*
+ * Termine le programme proprement en liberant la memoire alloué
+ */
+{
+	printf("Fin du programme... Au revoir :)\n");
+	free(memoireVive);
+	free(memoireVirtuelle);
+	
+	free(tableProcessus);
+	
+	if (signum == 0)
+	// Terminaison normale
+		exit(EXIT_SUCCESS);
+	else
+	// Terminaison par signaux ou par erreur
+		exit(EXIT_FAILURE);
+}
+
+int main(int argc, char** argv)
 {
 	do
 	{
@@ -27,7 +46,7 @@ int main(int argc, char* argv)
 		scanf("%d", &tailleCadresPages);
 		if (tailleCadresPages > tailleMemoireVive || tailleCadresPages < 1)
 			fprintf(stderr, "La taille du cadre des pages doit etre une valeur strictement positive, inferieure a la taille de la memoire vive!\n");
-	{ while (tailleCadresPages > tailleMemoireVive || tailleCadresPages < 1)
+	{ while (tailleCadresPages > tailleMemoireVive || tailleCadresPages < 1);
 	
 	do
 	{
@@ -35,36 +54,17 @@ int main(int argc, char* argv)
 		scanf("%d", &quantum);
 		if (quantum < 1)
 			fprintf(stderr, "Le quantum doit avoir une valeur strictement positive!\n");
-	} while (quantum < 1)
+	} while (quantum < 1);
 	
 	struct sigaction quitAction;
-	quitHandler.sa_handler = finProgramme;
-	quitHandler.sa_flags = 0;
-	sigaction(SIGINT, &quitHandler, NULL);
-	sigaction(SIGQUIT, &quitHandler, NULL);
-	// sigaction(, &quitHandler, NULL);
+	quitAction.sa_handler = finProgramme;
+	quitAction.sa_flags = 0;
+	sigaction(SIGINT, &quitAction, NULL);
+	sigaction(SIGQUIT, &quitAction, NULL);
+	// sigaction(, &quitAction, NULL);
 	
 	preparationMemoire();
 	preparationOrdonnanceur();
 	
 	
-}
-
-void finProgramme(int signum)
-/*
- * Termine le programme proprement en liberant la memoire alloué
- */
-{
-	printf("Fin du programme... Au revoir :)\n");
-	free(memoireVive);
-	free(memoireVirtuelle);
-	
-	free(tableProcessus);
-	
-	if (signum == 0)
-	// Terminaison normale
-		exit(EXIT_SUCCES);
-	else
-	// Terminaison par signaux ou par erreur
-		exit(EXIT_FAILURE);
 }
