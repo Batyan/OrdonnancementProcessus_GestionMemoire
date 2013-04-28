@@ -86,7 +86,7 @@ void placeProcessusMemoire(int pid, int empMem, int* memoire)
 {
 	printf("Le processus %d est place en memoire. Pages %d a %d.\n", pid, empMem, empMem + tableProcessus[pid].taille);
 	int i = empMem;
-	for (; i < tableProcessus[pid].taille + empMem; ++i)
+	for (; i < tableProcessus[pid].taille; ++i)
 	{
 		memoire[i] = pid;
 	}

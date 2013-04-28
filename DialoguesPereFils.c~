@@ -23,7 +23,7 @@ void analyseReponse(int lecture)
 void reponseMemoire()
 {
 	
-	printf("Memoire vive : %d cadres de page\n", numCadresVive);
+	printf("Memoire vive: %d cadres de page\n", numCadresVive);
 	printf("Cadre de page: pid du processus, taille du processus\n");
 	int i;
 	for (i = 0; i < numCadresVive / 5; ++i)
@@ -33,21 +33,21 @@ void reponseMemoire()
 		{
 			if (tableProcessus[memoireVive[i*5+j]].pid != -1)
 			{
-				printf("%d : %d, %d\t", i*5+j, /*tableProcessus[*/memoireVive[i*5+j]/*].pid*/, tableProcessus[memoireVive[i*5+j]].taille);
+				printf("%d: %d, %d\t", i*5+j, /*tableProcessus[*/memoireVive[i*5+j]/*].pid*/, tableProcessus[memoireVive[i*5+j]].taille);
 			}
 			else
 			{
-				printf("%d : \t\t", i*5+j);
+				printf("%d: \t\t", i*5+j);
 			}
 		}
 		printf("\n");
 	}
 	for (i = i*5; i < numCadresVive; ++i)
 	{
-		printf("%d : %d, %d\t", i, tableProcessus[memoireVive[i]].pid, tableProcessus[memoireVive[i]].taille);
+		printf("%d: %d, %d\t", i, tableProcessus[memoireVive[i]].pid, tableProcessus[memoireVive[i]].taille);
 	}
 	
-	printf("\nMemoire virtuelle : %d cadres de page\n", numCadresVirtuelle);
+	printf("\nMemoire virtuelle: %d cadres de page\n", numCadresVirtuelle);
 	printf("Cadre de page: pid du processus, taille du processus\n");
 	for (i = 0; i < numCadresVirtuelle / 5; ++i)
 	{
@@ -56,11 +56,11 @@ void reponseMemoire()
 		{
 			if (tableProcessus[memoireVirtuelle[i*5+j]].pid != -1)
 			{
-				printf("%d : %d, %d\t", i*5+j, /*tableProcessus[*/memoireVirtuelle[i*5+j]/*].pid*/, tableProcessus[memoireVirtuelle[i*5+j]].taille);
+				printf("%d: %d, %d\t", i*5+j, /*tableProcessus[*/memoireVirtuelle[i*5+j]/*].pid*/, tableProcessus[memoireVirtuelle[i*5+j]].taille);
 			}
 			else
 			{
-				printf("%d : \t\t", i*5+j);
+				printf("%d: \t\t", i*5+j);
 			}
 		}
 		printf("\n");
@@ -69,7 +69,7 @@ void reponseMemoire()
 	{
 		if (tableProcessus[memoireVirtuelle[i]].pid != -1)
 		{
-			printf("%d : %d, %d\t", i, tableProcessus[memoireVirtuelle[i]].pid, tableProcessus[memoireVirtuelle[i]].taille);
+			printf("%d: %d, %d\t", i, tableProcessus[memoireVirtuelle[i]].pid, tableProcessus[memoireVirtuelle[i]].taille);
 		}
 		else
 		{

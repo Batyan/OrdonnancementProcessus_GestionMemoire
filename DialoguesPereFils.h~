@@ -14,6 +14,6 @@ void reponseFileAttenteProcessus();
 
 void demandeFileAttenteProcessus(int ecriture);
 
-void demandeAjoutProcessus(int ecriture);
+void demandeAjoutProcessus(int dureeProc, int tailleProc);
 
 #endif /*DIALOGUESPEREFILS_H*/

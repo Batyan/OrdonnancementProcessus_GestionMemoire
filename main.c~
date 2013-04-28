@@ -149,6 +149,12 @@ int main(int argc, char** argv)
 			switch (action)
 			{
 				case 1:
+					/*printf("Entrez la duree du processus: ");
+					int dureeProc;
+					scanf("%d", &dureeProc);
+					printf("Entrez la taille du processus: ");
+					int tailleProc;
+					scanf("%d", &tailleProc);*/
 					demandeAjoutProcessus(pereFils[1]);
 					sleep(100);
 					break;

@@ -129,11 +129,11 @@ void supprimerProcessusFile(int pid, struct File* file)
 
 void enleverProcessus(int pid)
 {
-	supprimerProcessusFile(pid, &tabFiles[0]);
-	supprimerProcessusFile(pid, &tabFiles[1]);
-	supprimerProcessusFile(pid, &tabFiles[2]);
-	supprimerProcessusFile(pid, &tabFiles[3]);
-	supprimerProcessusFile(pid, &tabFiles[4]);
+	supprimerProcessusFile(pid, &fileP0);
+	supprimerProcessusFile(pid, &fileP1);
+	supprimerProcessusFile(pid, &fileP2);
+	supprimerProcessusFile(pid, &fileP3);
+	supprimerProcessusFile(pid, &fileP4);
 	
 	supprimerProcessusTable(pid);
 }

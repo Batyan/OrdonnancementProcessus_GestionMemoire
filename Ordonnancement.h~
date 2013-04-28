@@ -37,7 +37,7 @@ void supprimerProcessusTable(int pid);
 
 void reordonnancement();
 
-void createNewProcessus();
+void createNewProcessus()
 
 struct Processus{
 	int pid;
@@ -51,6 +51,7 @@ struct Processus{
 struct File
 {
 	struct Processus file[TAILLEFILE];
+	//int file[TAILLEFILE];
 	int beg;
 	int end;
 };
