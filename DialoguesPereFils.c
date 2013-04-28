@@ -6,18 +6,19 @@ void analyseReponse(int lecture)
  */
 {
 	char a[256];
-	read(lecture, a, 256);
-	
-	if (a[0] == '1')
+	if (read(lecture, a, 256) != 0)
 	{
-		if (a[1] == 'p')
-			reponseFileAttenteProcessus();
-		else if (a[1] == 'm')
-			reponseMemoire();
-		else if (a[1] == 'n')
-			createNewProcessus();
+		if (a[0] == '1')
+		{
+			if (a[1] == 'p')
+				reponseFileAttenteProcessus();
+			else if (a[1] == 'm')
+				reponseMemoire();
+			else if (a[1] == 'n')
+				createNewProcessus();
+			kill(getppid(), SIGUSR1);
+		}
 	}
-	kill(getppid(), SIGUSR1);
 }
 
 void reponseMemoire()
@@ -119,15 +120,6 @@ void reponseFileAttenteProcessus()
 
 void demandeAjoutProcessus(int ecriture)
 {
-	/*createNewProcessus();
-	kill(getppid(), SIGUSR1);*/
-	/*printf("Entrez la duree du processus: ");
-	int dureeProc;
-	scanf("%d", &dureeProc);
-	printf("Entrez la taille du processus: ");
-	int tailleProc;
-	scanf("%d", &tailleProc);*/
-	
 	char buff[] = "1n";
 	write(ecriture, buff, sizeof(buff));
 }

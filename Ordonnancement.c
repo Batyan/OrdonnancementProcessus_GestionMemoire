@@ -36,7 +36,7 @@ void initFile(struct File f)
 	f.end = 0;
 }
 
-int addProcessTable(struct Processus *p)
+int addProcessTable(struct Processus* p)
 /*
  * Ajoute le processus dans la table des processus
  * Retourne la position dans la table, ou -1 si echoué
@@ -91,7 +91,7 @@ int newProcessus(int duree, int taille)
 	struct Processus p;
 	p.duree = duree;
 	p.dureeRestante = duree;
-	p.taille = taille;
+	p.taille = (taille + tailleCadresPages - 1) / tailleCadresPages;
 	
 	int pid = addProcessTable(&p);
 	p.pid = pid;
@@ -161,4 +161,79 @@ void createNewProcessus()
 	int tailleProc;
 	scanf("%d", &tailleProc);
 	newProcessus(dureeProc, tailleProc);
+}
+
+int processTime()
+/*
+ * Gere le deroulement du temps, l'exucution des processus et la mise en memoire vive de ceux-ci
+ * retourne 0 si aucun processus dans les files, -1 en cas d'erreur, sinon 1
+ */
+{
+	/*if (processFile(&tabFiles[0]) == 0)
+		if (processFile(&tabFiles[1]) == 0)
+			if (processFile(&tabFiles[2]) == 0)
+				if (processFile(&tabFiles[3]) == 0)
+					if(processFile(&tabFiles[4]) == 0)
+						return 0;*/
+	int i;
+	for (i = 0; i < NUMFILES; ++i)
+	{
+		int r = processFile(&tabFiles[i]);
+		if (r == 1)
+			return 1;
+		else if (r == -1)
+			return -1;
+	}
+	return 0;
+}
+
+int processFile(struct File* file)
+/*
+ * Execute le processus
+ * Retourne 0, ou 1 si le processus est termine
+ * -1 si aucun processus n'a ete execute
+ */
+{
+	int valReturn = 0;
+	struct Processus* p = &tableProcessus[file->beg];
+	
+	printf("Processus %d...\n...\n", p->pid);
+	if (execute(tableProcessus[file->beg].pid) == -1)
+	{
+		//printf("Aucun processus a executer...\n");
+		return -1;
+	}
+	
+	tableProcessus[file->beg].nombreAccesProc += 1;
+	if (tableProcessus[file->beg].dureeRestante > 0)
+	{
+		printf("Execution processus...\n");
+		addProcessFile(file, &tableProcessus[file->beg]);
+	}
+	else
+	{
+		valReturn = 1;
+		printf("Processus termine...\n");
+	}
+	file->beg = file->beg+1;
+	return valReturn;
+}
+
+int execute(int pid)
+{
+	if (pid == -1)
+		return -1;
+	printf("Execute pid %d...\n", pid);
+	int difference = estDansMemoireVive(pid);
+	if (difference <= 0)
+	{
+		printf("Processus %d est deja en memoire, execution...\n", pid);
+	}
+	else
+	{
+		printf("Processus pas entierement en memoire...\n%d pages restantes.\n", difference);
+		ajouteDansMemoireVive(pid, difference);
+	}
+	tableProcessus[pid].dureeRestante -= 1;
+	return 0;
 }

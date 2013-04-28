@@ -67,6 +67,8 @@ int main(int argc, char** argv)
 		close(filsPere[0]); // Fermeture de la lecture sur filsPere
 		close(pereFils[1]); // Fermeture de l'ecriture sur pereFils
 		
+		fcntl(pereFils[0], F_SETFL, O_NONBLOCK); // Lecture non bloquante
+		
 		do
 		{
 			printf("Entrez la taille de la mémoire vive :\t");
@@ -112,7 +114,7 @@ int main(int argc, char** argv)
 			int numOrdonnancement = 0;
 			while(numOrdonnancement < MAXORDONNANCEMENT)
 			{
-				
+				processTime();
 				//printf("Lecture de %s\n", a);
 				analyseReponse(pereFils[0]);
 				sleep(quantum);
@@ -130,7 +132,7 @@ int main(int argc, char** argv)
 		sigemptyset(&reveilAct.sa_mask);
 		sigaction(SIGUSR1, &reveilAct, NULL);
 		// Le pere entre en sommeil jusqu'a ce que le fils ait fini son initialisation
-		sleep(100);
+		sleep(60);
 		
 		printf("Initialisation terminée,\nvous pouvez maintenant utiliser le simulateur d'ordonnancement et de gestion de la mémoire.\n\n");
 		

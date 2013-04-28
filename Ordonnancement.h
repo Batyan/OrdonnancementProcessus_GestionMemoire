@@ -39,6 +39,12 @@ void reordonnancement();
 
 void createNewProcessus();
 
+int processTime();
+
+int processFile(struct File* file);
+
+int execute(int pid);
+
 struct Processus{
 	int pid;
 	int duree;
@@ -56,6 +62,6 @@ struct File
 };
 
 
-struct File tabFiles[5];
+struct File tabFiles[NUMFILES];
 
 #endif /*ORDONNANCEMENT_H*/
