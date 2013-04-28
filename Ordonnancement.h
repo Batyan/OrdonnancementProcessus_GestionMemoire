@@ -23,7 +23,7 @@ void preparationOrdonnanceur();
 
 void initFile(struct File f);
 
-int addProcessTable(struct Processus *p);
+int addProcessTable(struct Processus* p);
 
 int addProcessFile(struct File* f, struct Processus *p);
 

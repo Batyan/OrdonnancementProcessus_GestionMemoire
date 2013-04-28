@@ -61,8 +61,9 @@ int addProcessTable(struct Processus* p)
 	else
 	{
 		tableProcessus[place] = *p;
+		tableProcessus[place].pid = place;
 	}
-	printf("Ajout du processus dans la table... pid: %d\n", place);
+	printf("Ajout du processus dans la table... pid: %d\n", tableProcessus[place].pid);
 	return place;
 }
 
@@ -197,7 +198,7 @@ int processFile(struct File* file)
 	int valReturn = 0;
 	struct Processus* p = &tableProcessus[file->beg];
 	
-	printf("Processus %d...\n...\n", p->pid);
+	printf("Processus %d...\nid %d...\n", p->pid, file->beg);
 	if (execute(tableProcessus[file->beg].pid) == -1)
 	{
 		//printf("Aucun processus a executer...\n");
