@@ -1,7 +1,6 @@
 /*
- * 
- *
- * 
+ * main.c
+ * Auteurs : Battista Yann, Mohamed Hilali
  */
 
 #include "glob.h"

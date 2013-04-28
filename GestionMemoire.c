@@ -1,4 +1,8 @@
-
+/*
+ * GestionMemoire.c
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
+ 
 #include "GestionMemoire.h"
 #include "Ordonnancement.h"
 
@@ -167,7 +171,7 @@ void placeProcessusMemoireTaille(int pid, int empMem, int* memoire)
  * Peut etre utilise pour liberer la memoire si pid est mis a -1
  */
 {
-	printf("Le processus %d est place en memoire. Page %d.\n", pid, empMem);
+	//printf("Le processus %d est place en memoire. Page %d.\n", pid, empMem);
 	memoire[empMem] = pid;
 	if (memoire == memoireVive)
 	{

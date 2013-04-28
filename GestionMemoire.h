@@ -1,4 +1,7 @@
-
+/*
+ * GestionMemoire.h
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
 
 #ifndef GESTIONMEMOIRE_H
 #define GESTIONMEMOIRE_H
@@ -18,7 +21,6 @@ int estDansMemoireVive(int pid);
 void ajouteDansMemoireVive(int pid, int numAPlacer);
 
 void placeProcessusMemoireTaille(int pid, int empMem, int* memoire);
-
 
 int tailleMemoireVive;
 int tailleMemoireVirtuelle;

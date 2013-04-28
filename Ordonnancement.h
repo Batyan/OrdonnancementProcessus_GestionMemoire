@@ -1,3 +1,8 @@
+/*
+ * Ordonnancement.h
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
+
 #ifndef ORDONNANCEMENT_H
 #define ORDONNANCEMENT_H
 

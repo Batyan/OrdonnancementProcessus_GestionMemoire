@@ -1,3 +1,8 @@
+/*
+ * DialoguePereFils.c
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
+
 #include "DialoguesPereFils.h"
 
 void analyseReponse(int lecture)
@@ -24,8 +29,8 @@ void analyseReponse(int lecture)
 void reponseMemoire()
 {
 	
-	printf("Memoire vive : %d cadres de page\n", numCadresVive);
-	printf("Cadre de page: pid du processus, taille du processus\n");
+	//printf("Memoire vive : %d cadres de page\n", numCadresVive);
+	//printf("Cadre de page: pid du processus, taille du processus\n");
 	int i;
 	for (i = 0; i < numCadresVive / 5; ++i)
 	{
@@ -48,8 +53,8 @@ void reponseMemoire()
 		printf("%d : %d, %d\t", i, tableProcessus[memoireVive[i]].pid, tableProcessus[memoireVive[i]].taille);
 	}
 	
-	printf("\nMemoire virtuelle : %d cadres de page\n", numCadresVirtuelle);
-	printf("Cadre de page: pid du processus, taille du processus\n");
+	//printf("\nMemoire virtuelle : %d cadres de page\n", numCadresVirtuelle);
+	//printf("Cadre de page: pid du processus, taille du processus\n");
 	for (i = 0; i < numCadresVirtuelle / 5; ++i)
 	{
 		int j;
@@ -90,7 +95,7 @@ void demandeFileAttenteProcessus(int ecriture)
 
 void reponseFileAttenteProcessus()
 {
-	printf("Priorite\t\tFile d'attente\n");
+	//printf("Priorite\t\tFile d'attente\n");
 	int f;
 	for(f = 0; f < NUMFILES; ++f)
 	{

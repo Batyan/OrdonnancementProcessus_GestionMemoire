@@ -1,3 +1,7 @@
+/*
+ * glob.h
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
 
 #ifndef GLOB_H
 #define GLOB_H

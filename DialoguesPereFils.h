@@ -1,3 +1,8 @@
+/*
+ * DialoguePereFile.h
+ * Auteurs : Battista Yann, Mohamed Hilali
+ */
+
 #ifndef DIALOGUESPEREFILS_H
 #define DIALOGUESPEREFILS_H
 
